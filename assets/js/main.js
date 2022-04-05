@@ -3,9 +3,13 @@ con difficoltà 1 => tra 1 e 100
 con difficoltà 2 => tra 1 e 81
 con difficoltà 3 => tra 1 e 49
 Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro. */
+let score_easy = 0;
+let score_medium = 0;
+let score_hard = 0;
+let bool = true;
 
-let gioca = document.getElementById('gioca');
-gioca.addEventListener('click', function(){
+    let gioca = document.getElementById('gioca');
+    gioca.addEventListener('click', function(){
 
     let difficolta = document.getElementById('difficolta').value
     if(difficolta == 1){
@@ -43,13 +47,21 @@ gioca.addEventListener('click', function(){
 
     for(let i = 0; i < cells.length; i++){
         const cell = cells[i];
-
+        for(let j = 0; j < arr.length; j++){
+            if(i + 1 == arr[j]){
+                cell.addEventListener('click', function (){
+                    this.classList.add('active_bomb')
+                    bool = false;
+                })
+            }
+        }
         cell.addEventListener('click', function (){
             console.log(this, i);
             this.classList.toggle('active')
+            score_easy += 10;
+            console.log(`punteggio: ${score_easy}`);
         })
     }
-
     }else if (difficolta == 2){
     
     // crea array numeri celle bombe
@@ -89,6 +101,8 @@ gioca.addEventListener('click', function(){
         cell.addEventListener('click', function (){
             console.log(this, i);
             this.classList.toggle('active')
+            score_medium += 20;
+            console.log(`punteggio: ${score_medium}`);
         })
     }
 
@@ -126,10 +140,18 @@ gioca.addEventListener('click', function(){
 
     for(let i = 0; i < cells.length; i++){
         const cell = cells[i];
-
+        for(let j = 0; j < arr.length; j++){
+            if(i + 1 == arr[j]){
+                cell.addEventListener('click', function (){
+                    this.classList.add('active_bomb')
+                })
+            }
+        }
         cell.addEventListener('click', function (){
             console.log(this, i);
             this.classList.toggle('active')
+            score_hard += 30;
+            console.log(`punteggio: ${score_hard}`);
         })
     }
     }

@@ -66,6 +66,9 @@ header{
     display: none;
     height: 100%;
 }
+.active_bomb{
+    background-color: red;
+}
 footer p{
     margin-left: 180px;
     margin-bottom: 30px;
