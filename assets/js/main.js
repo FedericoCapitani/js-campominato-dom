@@ -51,6 +51,7 @@ let bool = true;
             if(i + 1 == arr[j]){
                 cell.addEventListener('click', function (){
                     this.classList.add('active_bomb')
+                    score_easy -= 10;
                     bool = false;
                 })
             }
@@ -97,14 +98,22 @@ let bool = true;
 
     for(let i = 0; i < cells.length; i++){
         const cell = cells[i];
-
-        cell.addEventListener('click', function (){
-            console.log(this, i);
-            this.classList.toggle('active')
-            score_medium += 20;
-            console.log(`punteggio: ${score_medium}`);
-        })
-    }
+            for(let j = 0; j < arr.length; j++){
+                if(i + 1 == arr[j]){
+                    cell.addEventListener('click', function (){
+                        this.classList.add('active_bomb')
+                        score_medium -= 20;
+                        bool = false;
+                    })
+                }
+            }
+            cell.addEventListener('click', function (){
+                console.log(this, i);
+                this.classList.toggle('active')
+                score_medium += 20;
+                console.log(`punteggio: ${score_medium}`);
+            })
+        }
 
     }else if (difficolta == 3){
     
@@ -144,6 +153,8 @@ let bool = true;
             if(i + 1 == arr[j]){
                 cell.addEventListener('click', function (){
                     this.classList.add('active_bomb')
+                    score_hard -= 30;
+                    bool = false;
                 })
             }
         }
