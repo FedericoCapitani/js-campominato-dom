@@ -24,6 +24,13 @@ gioca.addEventListener('click', function(){
     
         for (let i = 1; i <= 100; i++){
             const cellItem = document.createElement(tag_name);
+            // assegna un oggetto "bomb" alle caselle generate dall'array 
+            for(let j = 0; j < arr.length; j++){
+                // assegna un oggetto "bomb" alle caselle generate dall'array 
+                if( i == arr[j]){
+                    cellItem.insertAdjacentHTML('beforeend', '<div class = "bomb"></div>')
+                }
+            }
             cellItem.append(`${i}`)
             cellItem.classList.add(class_name);
             cellsElement.append(cellItem);
@@ -59,6 +66,13 @@ gioca.addEventListener('click', function(){
     
         for (let i = 1; i <= 81; i++){
             const cellItem = document.createElement(tag_name);
+            // assegna un oggetto "bomb" alle caselle generate dall'array 
+            for(let j = 0; j < arr.length; j++){
+                // assegna un oggetto "bomb" alle caselle generate dall'array 
+                if( i == arr[j]){
+                    cellItem.insertAdjacentHTML('beforeend', '<div class = "bomb"></div>')
+                }
+            }
             cellItem.append(`${i}`)
             cellItem.classList.add(class_name);
             cellsElement.append(cellItem);
@@ -94,6 +108,12 @@ gioca.addEventListener('click', function(){
     
         for (let i = 1; i <= 49; i++){
             const cellItem = document.createElement(tag_name);
+            for(let j = 0; j < arr.length; j++){
+                // assegna un oggetto "bomb" alle caselle generate dall'array 
+                if( i == arr[j]){
+                    cellItem.insertAdjacentHTML('beforeend', '<div class = "bomb"></div>')
+                }
+            }
             cellItem.append(`${i}`)
             cellItem.classList.add(class_name);
             cellsElement.append(cellItem);
