@@ -6,7 +6,6 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro. */
 let score_easy = 0;
 let score_medium = 0;
 let score_hard = 0;
-let bool = true;
 
     let gioca = document.getElementById('gioca');
     gioca.addEventListener('click', function(){
@@ -52,7 +51,8 @@ let bool = true;
                 cell.addEventListener('click', function (){
                     this.classList.add('active_bomb')
                     score_easy -= 10;
-                    bool = false;
+                    const fine = document.querySelector('.cells')
+                    fine.innerHTML = `il tuo punteggio è: ${score_easy} punti`
                 })
             }
         }
@@ -103,7 +103,8 @@ let bool = true;
                     cell.addEventListener('click', function (){
                         this.classList.add('active_bomb')
                         score_medium -= 20;
-                        bool = false;
+                        const fine = document.querySelector('.cells')
+                        fine.innerHTML = `il tuo punteggio è: ${score_medium} punti`
                     })
                 }
             }
@@ -154,7 +155,8 @@ let bool = true;
                 cell.addEventListener('click', function (){
                     this.classList.add('active_bomb')
                     score_hard -= 30;
-                    bool = false;
+                    const fine = document.querySelector('.cells')
+                    fine.innerHTML = `il tuo punteggio è: ${score_hard} punti`
                 })
             }
         }
