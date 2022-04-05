@@ -8,8 +8,15 @@ let gioca = document.getElementById('gioca');
 gioca.addEventListener('click', function(){
 
     let difficolta = document.getElementById('difficolta').value
-    console.log(difficolta);
     if(difficolta == 1){
+
+    // crea array numeri celle bombe
+    let arr = [];
+    while(arr.length < 16){
+        let r = Math.floor(Math.random() * 100) + 1;
+        if(arr.indexOf(r) === -1) arr.push(r);
+    }
+    console.log(arr);
     // celle difficoltà 1
     function generateGrid(selector, tag_name, class_name){
         const cellsElement = document.querySelector(selector)
@@ -35,7 +42,16 @@ gioca.addEventListener('click', function(){
             this.classList.toggle('active')
         })
     }
+
     }else if (difficolta == 2){
+    
+    // crea array numeri celle bombe
+    var arr = [];
+    while(arr.length < 16){
+        var r = Math.floor(Math.random() * 81) + 1;
+        if(arr.indexOf(r) === -1) arr.push(r);
+    }
+    console.log(arr);
     // celle difficoltà 2
     function generateGrid(selector, tag_name, class_name){
         const cellsElement = document.querySelector(selector)
@@ -63,6 +79,14 @@ gioca.addEventListener('click', function(){
     }
 
     }else if (difficolta == 3){
+    
+    // crea array numeri celle bombe
+    var arr = [];
+    while(arr.length < 16){
+       var r = Math.floor(Math.random() * 49) + 1;
+    if(arr.indexOf(r) === -1) arr.push(r);
+    }
+    console.log(arr);
     // celle difficoltà 3
     function generateGrid(selector, tag_name, class_name){
         const cellsElement = document.querySelector(selector)
@@ -90,5 +114,7 @@ gioca.addEventListener('click', function(){
     }
     }
 });
+
+
 
 
