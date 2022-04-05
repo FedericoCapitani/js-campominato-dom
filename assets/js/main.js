@@ -6,6 +6,9 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro. */
 let score_easy = 0;
 let score_medium = 0;
 let score_hard = 0;
+let counter_easy = 0;
+let counter_medium = 0;
+let counter_hard = 0;
 
     let gioca = document.getElementById('gioca');
     gioca.addEventListener('click', function(){
@@ -51,8 +54,8 @@ let score_hard = 0;
                 cell.addEventListener('click', function (){
                     this.classList.add('active_bomb')
                     score_easy -= 10;
-                    const fine = document.querySelector('.cells')
-                    fine.innerHTML = `il tuo punteggio è: ${score_easy} punti`
+                    const sconfitta = document.querySelector('.cells')
+                    sconfitta.innerHTML = `Hai perso, il tuo punteggio è: ${score_easy} punti`
                 })
             }
         }
@@ -60,7 +63,11 @@ let score_hard = 0;
             console.log(this, i);
             this.classList.toggle('active')
             score_easy += 10;
-            console.log(`punteggio: ${score_easy}`);
+            counter_easy++;
+            if(counter_easy > cells.length - arr.length){
+                const vittoria = document.querySelector('.cells')
+                vittoria.innerHTML = `Hai vinto, il tuo punteggio è ${score_easy}`
+            }
         })
     }
     }else if (difficolta == 2){
@@ -103,8 +110,8 @@ let score_hard = 0;
                     cell.addEventListener('click', function (){
                         this.classList.add('active_bomb')
                         score_medium -= 20;
-                        const fine = document.querySelector('.cells')
-                        fine.innerHTML = `il tuo punteggio è: ${score_medium} punti`
+                        const sconfitta = document.querySelector('.cells')
+                        sconfitta.innerHTML = `Hai perso, il tuo punteggio è: ${score_medium} punti`
                     })
                 }
             }
@@ -112,7 +119,11 @@ let score_hard = 0;
                 console.log(this, i);
                 this.classList.toggle('active')
                 score_medium += 20;
-                console.log(`punteggio: ${score_medium}`);
+                counter_medium++;
+                if(counter_medium > cells.length - arr.length){
+                    const vittoria = document.querySelector('.cells')
+                    vittoria.innerHTML = `Hai vinto, il tuo punteggio è ${score_medium}`
+                }
             })
         }
 
@@ -155,8 +166,8 @@ let score_hard = 0;
                 cell.addEventListener('click', function (){
                     this.classList.add('active_bomb')
                     score_hard -= 30;
-                    const fine = document.querySelector('.cells')
-                    fine.innerHTML = `il tuo punteggio è: ${score_hard} punti`
+                    const sconfitta = document.querySelector('.cells')
+                    sconfitta.innerHTML = `Hai perso, il tuo punteggio è: ${score_hard} punti`
                 })
             }
         }
@@ -165,6 +176,11 @@ let score_hard = 0;
             this.classList.toggle('active')
             score_hard += 30;
             console.log(`punteggio: ${score_hard}`);
+            counter_hard++;
+            if(counter_hard >= cells.length - arr.length){
+                const vittoria = document.querySelector('.cells')
+                vittoria.innerHTML = `Hai vinto, il tuo punteggio è ${score_hard}`
+            }
         })
     }
     }
